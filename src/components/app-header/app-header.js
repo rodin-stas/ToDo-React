@@ -1,5 +1,4 @@
-import react from "react";
-import App from "../app/app";
+import React from "react";
 
 const AppHeader = () => {
   return (

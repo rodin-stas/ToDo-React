@@ -25,7 +25,7 @@
 
         "linebreak-style": [
             "error",
-            "unix"
+            "windows"
         ],
         "babel/new-cap": 1,
         "babel/camelcase": 1,
