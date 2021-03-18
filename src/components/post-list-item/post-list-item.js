@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import PropTypes from "prop-types";
 
 // const PostListItem = () => {
 //   return (
@@ -19,44 +18,39 @@ import PropTypes from "prop-types";
 //   );
 // };
 
-class PostListItem extends Component {
+export default class PostListItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      textItem: this.props.textItem,
+      like: false,
     };
 
-    this.changetext = () => {
-      console.log("Нужно Пероносить в Выполненные");
-    };
+    this.onLike = this.onLike.bind(this);
   }
 
-  //   changeText() {
-  //     console.log("Нужно Пероносить в Выполненные");
-  //   }
+  onLike() {
+    this.setState(({like}) => ({
+      like: !like,
+    }));
+  }
 
-  //   Самый новый способ----------------------------------------
-  //   changeText = () => {
-  //     console.log("Нужно Пероносить в Выполненные");
-  //   };
-  //-------------------------------------------------------
   render() {
-    const postText = this.state.textItem;
+    const {textItem} = this.props;
+    const {like} = this.state;
+
     return (
-      <li className="app-list_item">
+      <>
         <label>
-          <input type="checkbox" onChange={this.changetext} />
-          htrhrth+{postText}
+          <input type="checkbox" onChange={this.onLike} />
+          {textItem}
         </label>
         <div className="item-btn">
           <i className="far fa-trash-alt btn"></i>
-          <i className="far fa-heart btn"></i>
+          <i
+            className={!like ? "far fa-heart btn" : "far fa-heart btn like"}
+          ></i>
         </div>
-      </li>
+      </>
     );
   }
 }
-PostListItem.propTypes = {
-  textItem: PropTypes.string,
-};
-export default PostListItem;

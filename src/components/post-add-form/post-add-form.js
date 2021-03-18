@@ -1,40 +1,60 @@
-import React, {Component} from "react";
+import React from "react";
 
 // const PostAdd = () => {
+//   const cteateListItemBtn = (event) => {
+//     event.preventDefault();
+//     console.log("Нужно Создовать заметку от кнопки ");
+//   };
+
 //   return (
-//     <input className="app-add-form" type="text" placeholder="enter todo" />
+//     <form className="app-add-form">
+//       <input
+//         className="app-add-form_input"
+//         type="text"
+//         placeholder="Напишите замктку"
+//         // onChange={this.cteateListItem}
+//       />
+//       <button className="app-add form_btn" onClick={cteateListItemBtn}>
+//         Add
+//       </button>
+//     </form>
 //   );
 // };
 
-class PostAdd extends Component {
-  constructor() {
-    super();
-    this.state = {
-      placeholder: "enter todo",
-    };
-    this.cteateListItem = (event) => {
-      if (event.keyCode == 13) {
-        console.log("Нужно Создовать заметку");
-      }
-    };
+class PostAdd extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ""};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentDidMount() {
-    document.addEventListener("keydown", this.cteateListItem);
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
   }
-  // cteateListItem() {
-  //   console.log("Нужно Создовать заметку");
-  // }
+
+  handleSubmit(event) {
+    console.log("Нужно переносить");
+    event.preventDefault();
+  }
+
   render() {
-    const placeholder = this.state.placeholder;
-    // const text = this.state.text;
     return (
-      <input
-        className="app-add-form"
-        type="text"
-        placeholder={placeholder}
-        onChange={this.cteateListItem}
-      />
+      <form className="app-add-form">
+        <input
+          className="app-add-form_input"
+          type="text"
+          placeholder="Напишите замктку"
+          value={this.state.value}
+          onChange={this.handleChange}
+        />
+        <button className="app-add form_btn" onClick={this.handleSubmit}>
+          Add
+        </button>
+      </form>
     );
   }
 }
+
 export default PostAdd;
