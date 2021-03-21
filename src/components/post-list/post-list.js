@@ -1,19 +1,21 @@
 import React from "react";
 import PostListItem from "../post-list-item";
+import { ListGroup, ListGroupItem } from "reactstrap";
 
-const PostList = ({posts}) => {
+const PostList = ({ posts, onDelete }) => {
   const todoItem = posts.map((item) => {
-    const {id, ...itemProps} = item;
+    const { id, ...itemProps } = item;
     return (
-      <li key={id} className="app-list-item">
-        <>
-          <PostListItem {...itemProps} />
-        </>
-      </li>
+      <ListGroupItem
+        key={id}
+        className="d-flex d-flex justify-content-between align-items-baseline"
+      >
+        <PostListItem {...itemProps} onDelete={() => onDelete(id)} />
+      </ListGroupItem>
     );
   });
 
-  return <ul className="app-list">{todoItem}</ul>;
+  return <ListGroup>{todoItem}</ListGroup>;
 };
 
 export default PostList;

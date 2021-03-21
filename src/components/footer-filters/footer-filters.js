@@ -1,24 +1,22 @@
 import React from "react";
-
-const FooterFilters = () => {
+import { Nav, NavItem, NavLink } from "reactstrap";
+const Filters = () => {
   return (
-    <ul className="filters">
-      <li className="filters-list">
-        <a className="filters-list_item" href="#">
-          all
-        </a>
-        <a className="filters-list_item" href="#">
-          active
-        </a>
-        <a className="filters-list_item" href="#">
-          completed
-        </a>
-        <a className="filters-list_item" href="#">
-          like
-        </a>
-      </li>
-    </ul>
+    <Nav>
+      <NavItem>
+        <NavLink href="#">All</NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink href="#">Active</NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink href="#">Completed</NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink href="#">Like</NavLink>
+      </NavItem>
+    </Nav>
   );
 };
 
-export default FooterFilters;
+export default Filters;

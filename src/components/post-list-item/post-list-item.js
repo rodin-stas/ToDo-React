@@ -1,4 +1,5 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import { Button } from "reactstrap";
 
 // const PostListItem = () => {
 //   return (
@@ -29,26 +30,33 @@ export default class PostListItem extends Component {
   }
 
   onLike() {
-    this.setState(({like}) => ({
+    this.setState(({ like }) => ({
       like: !like,
     }));
   }
 
   render() {
-    const {textItem} = this.props;
-    const {like} = this.state;
+    const { textItem, onDelete } = this.props;
+    const { like } = this.state;
 
     return (
       <>
         <label>
-          <input type="checkbox" onChange={this.onLike} />
+          <input type="checkbox" className="mr-2" onChange={this.onLike} />
           {textItem}
         </label>
         <div className="item-btn">
-          <i className="far fa-trash-alt btn"></i>
-          <i
+          <Button
+            outline
+            color="primary"
+            className="far fa-trash-alt btn mr-1"
+            onClick={onDelete}
+          ></Button>
+          <Button
+            outline
+            color="primary"
             className={!like ? "far fa-heart btn" : "far fa-heart btn like"}
-          ></i>
+          ></Button>
         </div>
       </>
     );

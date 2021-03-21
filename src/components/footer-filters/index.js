@@ -1,2 +1,2 @@
-import FooterFilters from "./footer-filters";
-export default FooterFilters;
+import Filters from "./footer-filters";
+export default Filters;
