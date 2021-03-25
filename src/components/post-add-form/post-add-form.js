@@ -39,7 +39,7 @@ class PostAdd extends Component {
           onSubmit={this.onSubmit}
         >
           <Input
-            className="app-add-form_input mr-1"
+            className="app-add-form_input mr-2"
             type="text"
             placeholder="Напишите замктку"
             onChange={this.onValueChange}

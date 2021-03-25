@@ -43,7 +43,7 @@ export default class App extends Component {
         },
       ],
       term: "",
-      filter: "all",
+      filter: "active",
     };
     this.deleteItem = this.deleteItem.bind(this);
     this.addItem = this.addItem.bind(this);
@@ -102,7 +102,7 @@ export default class App extends Component {
       const index = data.findIndex((elem) => elem.id === id); // Поиск в Массиве Элемента по id
 
       const old = data[index]; // Сохранили старый элемент из массива по индексу
-      const newItem = {...old, done: !old.done, active: !old.active}; // Создали новый элемент с противоположным значением like
+      const newItem = {...old, done: !old.done, active: !old.active}; // Создали новый элемент с противоположным значением like и done
       const newArr = [
         // Добавили новый элемент в массив вместо старого
         ...data.slice(0, index),

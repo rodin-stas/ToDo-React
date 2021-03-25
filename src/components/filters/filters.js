@@ -6,30 +6,30 @@ export default class Filters extends Component {
   constructor(props) {
     super(props);
     this.navLink = [
-      {name: "all", label: "Все"},
       {name: "active", label: "Активные"},
-      {name: "done", label: "Выполненные"},
       {name: "like", label: "Важные"},
+      {name: "done", label: "Выполненные"},
+      {name: "all", label: "Все"},
     ];
   }
 
   render() {
     const links = this.navLink.map(({name, label}) => {
       const active = this.props.filter === name;
-      const clazz = active ? "active" : "noActive";
+      // const clazz = active ? "active" : "noActive";
       return (
         <Button
-          color="primary"
+          color={active ? "primary" : "secondary"}
           size="sm"
           key={name}
           type="button"
-          className={clazz}
+          className="m-1"
           onClick={() => this.props.onFilterSelect(name)}
         >
           {label}
         </Button>
       );
     });
-    return <div>{links}</div>;
+    return <div className="bts-wrapper">{links}</div>;
   }
 }

@@ -25,7 +25,7 @@ export default class Search extends Component {
         onSubmit={this.onSubmit}
       >
         <Input
-          className="app-add-form_input mr-1"
+          className="app-add-form_input m-1"
           type="text"
           placeholder="ЧТо ищем?"
           onChange={this.onUpdateSearch}
