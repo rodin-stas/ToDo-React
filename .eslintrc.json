@@ -22,11 +22,7 @@
         "no-unused-vars": ["error", { "caughtErrorsIgnorePattern": "^ignore" }],
     	"react/jsx-uses-react": 1,
         "react/jsx-uses-vars": "error",
-
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
+        "linebreak-style": 0,
         "babel/new-cap": 1,
         "babel/camelcase": 1,
         "babel/no-invalid-this": 1,
@@ -36,5 +32,8 @@
         "babel/valid-typeof": 1,
         "react/prop-types": 0
 
+        
     }
+    
 }
+
