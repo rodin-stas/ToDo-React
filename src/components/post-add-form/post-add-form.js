@@ -41,7 +41,7 @@ class PostAdd extends Component {
           <Input
             className="app-add-form_input mr-2"
             type="text"
-            placeholder="Напишите замктку"
+            placeholder="Напишите замектку"
             onChange={this.onValueChange}
             value={this.state.text} // Оновлякм поле ввода, делаем контролируемый компонент
           />

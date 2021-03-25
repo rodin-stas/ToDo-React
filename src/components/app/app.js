@@ -71,6 +71,7 @@ export default class App extends Component {
       active: true,
       id: nextId(),
     };
+    // localStorage.setItem(nextId(), JSON.stringify(new));
     this.setState(({data}) => {
       const newArr = [...data, newItem];
       return {

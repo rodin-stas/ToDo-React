@@ -27,7 +27,7 @@ export default class Search extends Component {
         <Input
           className="app-add-form_input m-1"
           type="text"
-          placeholder="ЧТо ищем?"
+          placeholder="Что ищем?"
           onChange={this.onUpdateSearch}
           value={this.state.text} // Оновлякм поле ввода, делаем контролируемый компонент
         />
