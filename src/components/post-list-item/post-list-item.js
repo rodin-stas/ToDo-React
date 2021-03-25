@@ -1,34 +1,35 @@
-import React, { Component } from "react";
-import { Button } from "reactstrap";
+import React, {Component} from "react";
+// import {Button} from "reactstrap";
 
 export default class PostListItem extends Component {
   render() {
-    const { textItem, onDelete, onToggleLike, like } = this.props;
-    let classNames = "far fa-heart btn";
+    const {
+      textItem,
+      onDelete,
+      onToggleLike,
+      onToggleDone,
+      like,
+      done,
+    } = this.props;
+    let classNames = "fas fa-star",
+      classNamesLabel = "active";
 
     if (like) {
       classNames += " like";
     }
+    if (done) {
+      classNamesLabel = "done";
+    }
 
     return (
       <>
-        <label>
-          <input type="checkbox" className="mr-2" onChange={this.onLike} />
+        <label className={classNamesLabel}>
+          <input type="checkbox" className="mr-2" onChange={onToggleDone} />
           {textItem}
         </label>
         <div className="item-btn">
-          <Button
-            outline
-            color="primary"
-            className="far fa-trash-alt btn mr-1"
-            onClick={onDelete}
-          ></Button>
-          <Button
-            outline
-            color="primary"
-            className={classNames}
-            onClick={onToggleLike}
-          ></Button>
+          <i className="far fa-trash-alt mr-1" onClick={onDelete}></i>
+          <i className={classNames} onClick={onToggleLike}></i>
         </div>
       </>
     );

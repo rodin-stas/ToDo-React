@@ -1,4 +1,11 @@
-.btn.like {
-  color: red;
-  border-color: red;
+i {
+  color: #007bff;
+  cursor: pointer;
+}
+i.like {
+  color: rgb(255, 208, 0);
+}
+
+label.done {
+  text-decoration: line-through;
 }

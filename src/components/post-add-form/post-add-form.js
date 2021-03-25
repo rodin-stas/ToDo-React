@@ -1,59 +1,55 @@
-import React from "react";
-import { Button, Input, FormGroup } from "reactstrap";
+import React, {Component} from "react";
+import {Button, Input, FormGroup, Form} from "reactstrap";
 
-// const PostAdd = () => {
-//   const cteateListItemBtn = (event) => {
-//     event.preventDefault();
-//     console.log("Нужно Создовать заметку от кнопки ");
-//   };
-
-//   return (
-//     <form className="app-add-form">
-//       <input
-//         className="app-add-form_input"
-//         type="text"
-//         placeholder="Напишите замктку"
-//         // onChange={this.cteateListItem}
-//       />
-//       <button className="app-add form_btn" onClick={cteateListItemBtn}>
-//         Add
-//       </button>
-//     </form>
-//   );
-// };
-
-class PostAdd extends React.Component {
+class PostAdd extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = {
+      text: "",
+    };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
+    this.onValueChange = this.onValueChange.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
+  onValueChange(e) {
+    this.setState({
+      text: e.target.value,
+    });
+  }
+  onSubmit(e) {
+    e.preventDefault();
+    console.log(this.state.text.length);
+    if (this.state.text.length !== 0) {
+      this.props.onAdd(this.state.text);
+      this.setState({
+        //Оновлякм поле ввода
+        text: "",
+      });
+    }
   }
 
   render() {
-    const { onAdd } = this.props;
+    // const {onAdd} = this.props;
     return (
-      <FormGroup className="app-add-form d-flex flex-row bd-highlight justify-content-around">
-        <Input
-          className="app-add-form_input mr-1"
-          type="text"
-          placeholder="Напишите замктку"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-
-        <Button
-          outline
-          color="primary"
-          className=""
-          onClick={() => onAdd("Нужно создавать item")}
+      <FormGroup>
+        <Form
+          className="app-add-form d-flex flex-row bd-highlight justify-content-around"
+          onSubmit={this.onSubmit}
         >
-          Add
-        </Button>
+          <Input
+            className="app-add-form_input mr-1"
+            type="text"
+            placeholder="Напишите замктку"
+            onChange={this.onValueChange}
+            value={this.state.text} // Оновлякм поле ввода, делаем контролируемый компонент
+          />
+
+          <Button type="submit" outline color="primary">
+            Add
+          </Button>
+        </Form>
       </FormGroup>
     );
   }
